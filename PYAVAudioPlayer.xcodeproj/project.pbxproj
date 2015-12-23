@@ -13,6 +13,9 @@
 		15DED6EA1C28F4CE009F2AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DED6E81C28F4CE009F2AD2 /* Main.storyboard */; };
 		15DED6EC1C28F4CE009F2AD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DED6EB1C28F4CE009F2AD2 /* Assets.xcassets */; };
 		15DED6EF1C28F4CF009F2AD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DED6ED1C28F4CF009F2AD2 /* LaunchScreen.storyboard */; };
+		15DED6F81C28F591009F2AD2 /* PYAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DED6F71C28F591009F2AD2 /* PYAVAudioPlayer.m */; };
+		15DED6FA1C28F625009F2AD2 /* Utile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DED6F91C28F625009F2AD2 /* Utile.framework */; };
+		15DED7061C2919F0009F2AD2 /* PYAVAudioTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DED7051C2919F0009F2AD2 /* PYAVAudioTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		15DED6EB1C28F4CE009F2AD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15DED6EE1C28F4CF009F2AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15DED6F01C28F4CF009F2AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15DED6F61C28F591009F2AD2 /* PYAVAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYAVAudioPlayer.h; sourceTree = "<group>"; };
+		15DED6F71C28F591009F2AD2 /* PYAVAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYAVAudioPlayer.m; sourceTree = "<group>"; };
+		15DED6F91C28F625009F2AD2 /* Utile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Utile.framework; sourceTree = "<group>"; };
+		15DED7041C2919F0009F2AD2 /* PYAVAudioTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYAVAudioTools.h; sourceTree = "<group>"; };
+		15DED7051C2919F0009F2AD2 /* PYAVAudioTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYAVAudioTools.m; sourceTree = "<group>"; };
+		15DED7071C291D1A009F2AD2 /* PYAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYAudio.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15DED6FA1C28F625009F2AD2 /* Utile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +52,7 @@
 		15DED6D31C28F4CE009F2AD2 = {
 			isa = PBXGroup;
 			children = (
+				15DED6F91C28F625009F2AD2 /* Utile.framework */,
 				15DED6DE1C28F4CE009F2AD2 /* PYAVAudioPlayer */,
 				15DED6DD1C28F4CE009F2AD2 /* Products */,
 			);
@@ -58,6 +69,11 @@
 		15DED6DE1C28F4CE009F2AD2 /* PYAVAudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				15DED7071C291D1A009F2AD2 /* PYAudio.h */,
+				15DED6F61C28F591009F2AD2 /* PYAVAudioPlayer.h */,
+				15DED6F71C28F591009F2AD2 /* PYAVAudioPlayer.m */,
+				15DED7041C2919F0009F2AD2 /* PYAVAudioTools.h */,
+				15DED7051C2919F0009F2AD2 /* PYAVAudioTools.m */,
 				15DED6E21C28F4CE009F2AD2 /* AppDelegate.h */,
 				15DED6E31C28F4CE009F2AD2 /* AppDelegate.m */,
 				15DED6E51C28F4CE009F2AD2 /* ViewController.h */,
@@ -149,9 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15DED7061C2919F0009F2AD2 /* PYAVAudioTools.m in Sources */,
 				15DED6E71C28F4CE009F2AD2 /* ViewController.m in Sources */,
 				15DED6E41C28F4CE009F2AD2 /* AppDelegate.m in Sources */,
 				15DED6E11C28F4CE009F2AD2 /* main.m in Sources */,
+				15DED6F81C28F591009F2AD2 /* PYAVAudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +281,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PYAVAudioPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = PYAVAudioPlayer.PYAVAudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -274,8 +298,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PYAVAudioPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = PYAVAudioPlayer.PYAVAudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

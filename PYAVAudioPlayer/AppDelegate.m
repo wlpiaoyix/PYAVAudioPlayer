@@ -7,9 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "PYAVAudioPlayer.h"
+#import "PYAVAudioTools.h"
+#import <Utile/PYUtile.h>
 
-@interface AppDelegate ()
-
+@interface AppDelegate ()<AVAudioSessionDelegate>
+@property (nonatomic,strong) PYAVAudioPlayer *player;
 @end
 
 @implementation AppDelegate
@@ -17,6 +20,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.player = [PYAVAudioPlayer new];
+    [PYAVAudioTools hookremoteControlReceivedWithPlayer:self.player];
+    [PYAVAudioTools hookoutputDeviceChangedWithPlayer:self.player];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray<NSString *> * array =  [fm subpathsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/download",documentDir] error:&error];
+    if (!error) {
+        for (NSString * path in array) {
+            if ([path rangeOfString:@".mp3"].length == 0) {
+                continue;
+            }
+            [self.player addAudioUrl:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/download/%@", documentDir, path]]];
+        }
+        [self.player play];
+    }
+    
     return YES;
 }
 
@@ -40,6 +59,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+    NSLog(@"======remoteControlReceivedWithEvent");
 }
 
 @end
