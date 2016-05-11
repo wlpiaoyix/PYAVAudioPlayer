@@ -15,8 +15,9 @@
 #ifndef IOS8_OR_LATER
 #define IOS8_OR_LATER (!(NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_8_0))
 #endif
+
 #ifndef IOS9_OR_LATER
-#define IOS9_OR_LATER (!(NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_8_4))
+#define IOS9_OR_LATER ((NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_4))
 #endif
 
 #ifndef RGB
@@ -86,10 +87,6 @@ double parseCoordinateToDistance(double lat1, double lng1, double lat2, double l
  汉字转拼音
  */
 + (NSString *) chineseToSpell:(NSString*)sourceString;
-//==>等待框
-+(void) showProgress:(NSString*) message;
-+(void) hiddenProgress;
-//<==
 /**
  添加不向服务器备份的Document下的路径
  */
